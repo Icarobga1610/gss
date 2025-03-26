@@ -1,0 +1,48 @@
+<div class="data-block">
+    <div class="section-title">
+        <i class="fas fa-database me-2"></i>GRID DE ANÁLISE – SGF
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-sm text-center align-middle sgf-grid">
+            <thead>
+            <tr class="bg-light text-dark fw-semibold">
+                <th>ANÁLISE DE STATUS DE IDENTIFICAÇÃO</th>
+                <th>MATRÍCULA NR</th>
+                <th>Nº OS</th> <!-- Atualizado com o campo Nº OS -->
+                <th>NM SIT LIGAÇÃO</th>
+                <th>DT OS</th>
+                <th>IDENTIFICAÇÃO ETAPA</th>
+                <th>DS ENDERECO</th>
+                <th>MUNICÍPIO NM</th>
+                <th>SG ESTADO</th>
+                <th>RH INICIO</th>
+                <th>RH FIM</th>
+                <th>AÇÃO</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Linha de exemplo com Nº OS -->
+            <tr>
+                <td>Em Análise</td>
+                <td>1234567</td>
+                <td>987654</td> <!-- Nº OS incluído -->
+                <td>Ligada</td>
+                <td>25/03/2025</td>
+                <td>Execução</td>
+                <td>Rua das Flores, 123</td>
+                <td>Manaus</td>
+                <td>AM</td>
+                <td>08:30</td>
+                <td>10:15</td>
+                <td>
+                    <button class="btn btn-sm btn-success" onclick="analisarSGF('1234567', '987654', '25/03/2025')">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </td>
+            </tr>
+            <!-- Outras linhas podem ser inseridas aqui -->
+            </tbody>
+        </table>
+    </div>
+</div>
