@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel de Análise – MAOT/GSS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .section-title {
+      background: #f0f0f0;
+      padding: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+      border-left: 5px solid #007bff;
+    }
+    .dados-box {
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h1 class="mb-4">Painel de Análise – MAOT / GSS</h1>
+
+  <!-- Abas -->
+  <ul class="nav nav-tabs" id="painelTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="maot-tab" data-bs-toggle="tab" href="#maot" role="tab">MAOT</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="analise-tab" data-bs-toggle="tab" href="#analise" role="tab">Análise IA</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="gss-tab" data-bs-toggle="tab" href="#gss" role="tab">GSS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="prod-tab" data-bs-toggle="tab" href="#produtividade" role="tab">Produtividade</a>
+    </li>
+  </ul>
+
+  <!-- Conteúdo das Abas -->
+  <div class="tab-content mt-3" id="painelTabsContent">
+
+    <!-- Aba MAOT com Grid e Cabeçalho inspirado no AGUAS DE MANAUS -->
+    <div class="tab-pane fade show active" id="maot" role="tabpanel" aria-labelledby="maot-tab">
+
+      <!-- Cabeçalho personalizado (baseado no projeto AGUAS DE MANAUS) -->
+      <div class="row align-items-center mb-3">
+        <div class="col-md-2">
+          <img src="/aegea_analise/_lib/img/sys__NM__img__NM__nova_logo_aegea_pequena.png" alt="Logo" class="img-fluid">
+        </div>
+        <div class="col-md-5">
+          <h2 class="mb-0">AGUAS DE MANAUS</h2>
+          <small>Ícaro Barbosa Guedes de Araújo, icaro.araujo</small>
+        </div>
+        <div class="col-md-5 text-end">
+          <p class="mb-0">25/03/2025</p>
+          <p class="mb-0">Localidade: AGUAS DE MANAUS</p>
+        </div>
+      </div>
+
+      <h3>Dados Iniciais – MAOT</h3>
+      <div id="grid_maot" class="table-responsive">
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="table-dark">
+          <tr>
+            <th>DATA</th>
+            <th>MATRÍCULA</th>
+            <th>NOTIFICAÇÃO</th>
+            <th>STATUS</th>
+            <th>NOME</th>
+            <th>AÇÃO</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>25/03/2025</td>
+            <td>123456</td>
+            <td>NF-20250325-A1</td>
+            <td>AFERIÇÃO</td>
+            <td>-</td>
+            <td><button class="btn btn-sm btn-primary iniciar-analise">Iniciar Análise</button></td>
+          </tr>
+          <tr>
+            <td>25/03/2025</td>
+            <td>654321</td>
+            <td>NF-20250325-B2</td>
+            <td>CANCELADA</td>
+            <td>JOÃO SILVA</td>
+            <td><button class="btn btn-sm btn-primary iniciar-analise">Iniciar Análise</button></td>
+          </tr>
+          <tr>
+            <td>25/03/2025</td>
+            <td>789012</td>
+            <td>NF-20250325-C3</td>
+            <td>DESCONTO AUTORIZADO</td>
+            <td>-</td>
+            <td><button class="btn btn-sm btn-primary iniciar-analise">Iniciar Análise</button></td>
+          </tr>
+          <tr>
+            <td>25/03/2025</td>
+            <td>345678</td>
+            <td>NF-20250325-D4</td>
+            <td>PROCEDENTE</td>
+            <td>ANA MARIA</td>
+            <td><button class="btn btn-sm btn-primary iniciar-analise">Iniciar Análise</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Aba Análise IA -->
+    <div class="tab-pane fade" id="analise" role="tabpanel" aria-labelledby="analise-tab">
+      <h3>Análise da IA</h3>
+
+      <div class="section-title">1. Dados MAOT</div>
+      <div class="dados-box" id="dados-maot">
+        <p><strong>Data:</strong> <span id="info-data"></span></p>
+        <p><strong>Matrícula:</strong> <span id="info-matricula"></span></p>
+        <p><strong>Notificação:</strong> <span id="info-notificacao"></span></p>
+        <p><strong>Status:</strong> <span id="info-status"></span></p>
+        <p><strong>Nome:</strong> <span id="info-nome"></span></p>
+      </div>
+
+      <div class="section-title">2. Dados GSS</div>
+      <div class="dados-box">
+        <p><strong>Última leitura:</strong> 130 m³</p>
+        <p><strong>Histórico de consumo:</strong> [110, 115, 120, 130]</p>
+        <p><strong>Débitos em aberto:</strong> R$ 82,50</p>
+      </div>
+
+      <div class="section-title">3. Sugestão da IA</div>
+      <div class="dados-box">
+        <p>Com base nos dados de consumo e histórico, a IA sugere <strong>análise mais detalhada</strong> no GSS antes de prosseguir com o cancelamento.</p>
+      </div>
+
+      <div class="section-title">4. Formulário de Deliberação</div>
+      <form>
+        <div class="mb-3">
+          <label for="decisao" class="form-label">Decisão</label>
+          <select id="decisao" class="form-select">
+            <option selected>Escolha...</option>
+            <option>Aferição</option>
+            <option>Cancelada</option>
+            <option>Desconto Autorizado</option>
+            <option>Procedente</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="obs" class="form-label">Observações</label>
+          <textarea class="form-control" id="obs" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Registrar Deliberação</button>
+      </form>
+    </div>
+
+    <!-- Aba GSS -->
+    <div class="tab-pane fade" id="gss" role="tabpanel" aria-labelledby="gss-tab">
+      <h3>Dados GSS</h3>
+      <p>Informações cruzadas com GSS serão exibidas aqui.</p>
+    </div>
+
+    <!-- Aba Produtividade -->
+    <div class="tab-pane fade" id="produtividade" role="tabpanel" aria-labelledby="prod-tab">
+      <h3>Produtividade</h3>
+      <p>Gráficos e estatísticas de desempenho vão aparecer aqui.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap e JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const iniciarBtns = document.querySelectorAll('.iniciar-analise');
+  iniciarBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const row = this.closest('tr');
+      const [data, matricula, notificacao, status, nome] = row.children;
+      document.getElementById('info-data').textContent = data.textContent;
+      document.getElementById('info-matricula').textContent = matricula.textContent;
+      document.getElementById('info-notificacao').textContent = notificacao.textContent;
+      document.getElementById('info-status').textContent = status.textContent;
+      document.getElementById('info-nome').textContent = nome.textContent;
+      const trigger = new bootstrap.Tab(document.querySelector('#analise-tab'));
+      trigger.show();
+    });
+  });
+</script>
+</body>
+</html>
