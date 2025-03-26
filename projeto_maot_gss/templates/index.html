@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Painel SGF/GSS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/a2d9a66a16.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <span class="navbar-brand">Painel SGF/GSS</span>
+  </div>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" data-bs-target="#abaSGF" data-bs-toggle="tab">SGF</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-target="#abaAnalise" data-bs-toggle="tab">Análise IA</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-target="#abaGSS" data-bs-toggle="tab">GSS</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-target="#abaProd" data-bs-toggle="tab">Produtividade</button>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3">
+    <div class="tab-pane fade show active" id="abaSGF" role="tabpanel">{% include 'aba_sgf.html' %}</div>
+    <div class="tab-pane fade" id="abaAnalise" role="tabpanel">{% include 'aba_analise.html' %}</div>
+    <div class="tab-pane fade" id="abaGSS" role="tabpanel">{% include 'aba_gss.html' %}</div>
+    <div class="tab-pane fade" id="abaProd" role="tabpanel">{% include 'aba_produtividade.html' %}</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
